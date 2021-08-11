@@ -20,7 +20,7 @@ Example:
 youtube_thumbnail 'https://youtu.be/dQw4w9WgXcQ' -o best_meme_ever
 ```
 
-![preview](https://raw.githubusercontent.com/animesh-chouhan/vcf-creator/main/assets/preview.gif)
+![preview](https://raw.githubusercontent.com/animesh-chouhan/youtube_thumbnail/main/assets/preview.png)
 
 
 ## Setup
