@@ -9,17 +9,19 @@
 
 ## Usage
 
-### youtube_thumbnail [-h] [-o FILE] url
-
 IMPORTANT: Enclose URL in single quotes
+
+```sh
+youtube_thumbnail [-h] [-o FILE] url
+```
+Example:
+
+```sh
+youtube_thumbnail 'https://youtu.be/dQw4w9WgXcQ' -o best_meme_ever
+```
 
 ![preview](https://raw.githubusercontent.com/animesh-chouhan/vcf-creator/main/assets/preview.gif)
 
-
-
-```sh
-youtube_thumbnail 'https://youtu.be/dQw4w9WgXcQ' -o best_meme_ever.jpg
-```
 
 ## Setup
 
