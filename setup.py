@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="youtube_thumbnail",
-    version="0.1.0",
+    version="0.1.1",
     author="Animesh Singh Chouhan",
     author_email="animeshsingh.iitkgp@gmail.com",
     description="CLI tool to download YouTube thumbnails",

@@ -1,6 +1,7 @@
 import logging
 import requests
 import argparse
+from pathlib import Path
 from urllib.parse import urlparse, parse_qs
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
@@ -27,14 +28,19 @@ def get_id(url):
 
 
 def download_image(id, filename):
+    filepath = Path(filename)
     img_url = f"https://i.ytimg.com/vi/{id}/maxresdefault.jpg"
-    logging.info("Image URL:" + img_url)
+    logging.info("Image URL is " + img_url)
 
     img_res = requests.get(img_url)
     status = img_res.status_code
     if status == 200:
-        with open(filename, 'wb') as f:
-            f.write(img_res.content)
+        if not filepath.is_file():
+            with open(filename, 'wb') as f:
+                f.write(img_res.content)
+            return 0
+        else:
+            return -2
     else:
         return -1
 
@@ -68,11 +74,14 @@ SUPPORTED URL's:
             out_file = args.out + ".jpg"
 
         res = download_image(id, out_file)
-        if res != -1:
+        if res == 0:
             logging.info("Downloading...")
             logging.info("Thumbnail written")
-        else:
+        elif res == -1:
             logging.error("Invalid URL")
+            logging.info("Exiting...")
+        elif res == -2:
+            logging.error("Thumbnail already downloaded")
             logging.info("Exiting...")
 
     else:
